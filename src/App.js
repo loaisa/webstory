@@ -2,8 +2,8 @@ import './App.css';
 import {Route, Routes} from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import Story from "./Components/Story/Story";
-import Users from "./Components/Users/Users";
 import Header from "./Components/Header/Header";
+import UsersContainer from "./Components/Users/UsersContainer";
 
 function App() {
     return (
@@ -14,7 +14,7 @@ function App() {
                 <Routes>
                     <Route path='/story/*' element={<Story/>}/>
 
-                    <Route path='/users/*' element={<Users/>}/>
+                    <Route path='/users/*' element={<UsersContainer/>}/>
                 </Routes>
 
             </div>
