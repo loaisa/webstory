@@ -1,0 +1,30 @@
+.main{
+    height:600px;
+    background: #343134;
+}
+.main__content{
+    width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__h1{
+    color: #FFF;
+    padding: 15px 15px;
+}
+.main__p1{
+    color: #FFF;
+    padding: 15px 15px;
+}
+
+.main__btn{
+    margin: 30px 0;
+    border: 2px solid white;
+    width: 145px;
+    height: 45px;
+    border-radius: 30px;
+}
