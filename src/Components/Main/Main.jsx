@@ -6,7 +6,6 @@ function Main(props) {
     return (
 
         <div className={classes.main}>
-            <Header/>
             <div className={classes.main__content}>
                 <div>
                     <h1 className={classes.main__h1}>

@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #e6e8ec;
+}
+
 .main{
     height:600px;
     background: #343134;
@@ -27,4 +34,11 @@
     width: 145px;
     height: 45px;
     border-radius: 30px;
+}
+.main__btn a{
+    color: white;
+}
+.modal{
+    height: 100px;
+    background: black;
 }

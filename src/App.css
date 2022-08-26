@@ -99,3 +99,7 @@ label {
 legend {
     display: block;
 }
+.app-wrapper-content{
+    width: 1140px;
+    margin: 0 auto;
+}
