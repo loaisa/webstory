@@ -7,7 +7,7 @@ function Users(props) {
             {props.users.map(u => <div key={u.id}>
                 <span>
                     <div>
-                        <img src={u.photoUrl} alt="#"/>
+                        <img className={classes.imgPreview} src={u.photoUrl} alt="#"/>
                     </div>
                     <div>
                         {u.followed ?

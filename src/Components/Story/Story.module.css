@@ -7,3 +7,91 @@
 .formItem{
     margin: 25px 0;
 }
+.story__item{
+    padding: 15px 0;
+}
+.imgPreview{
+    height: 200px;
+    width: 200px;
+}
+.open_Modal_Btn {
+    background: #fff;
+    padding: 18px 25px;
+    border-radius: 20px;
+    font-weight: 500;
+    border: 0;
+    outline: none;
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 23px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.1s ease-in-out;
+}
+.open_Modal_Btn:hover {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+}
+.open_Modal_Btn active {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.5s ease-in-out;
+}
+.modal {
+    background-color: #fff;
+    width: 70%;
+    max-width: 500px;
+    max-height: 300px;
+    padding: 40px 30px;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+}
+
+.modal svg {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 24px;
+    width: 24px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+.modal svg:hover {
+    opacity: 1;
+}
+.overlay.animated {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overlay.animated.show {
+    opacity: 1;
+    visibility: visible;
+}
+/*.overlay.animated.show .modal {*/
+/*    opacity: 1;*/
+/*    visibility: visible;*/
+/*    transform: translate(-50%, -50%);*/
+/*}*/
+/*.overlay.animated .modal {*/
+/*    opacity: 0;*/
+/*    visibility: hidden;*/
+/*    transform: translate(-50%, -30%);*/
+/*    transition-delay: 0.2s;*/
+/*}*/
+
+.create_story{
+    height: 600px;
+    border: 2px solid black;
+}

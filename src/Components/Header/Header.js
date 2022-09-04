@@ -22,8 +22,8 @@ function Header(props) {
     return (
         <header className={classes.header}>
             <div className={classes.headerItem}>
-                <div className="logo">
-                    <p>My Story</p>
+                <div className={classes.headerItemUl}>
+                    <NavLink className={classes.headerItemA} to='/about'>Ю Стори</NavLink>
                 </div>
                 <ul className={classes.headerItemUl}>
                     <NavLink className={classes.headerItemA} to='/about'>О нас</NavLink>

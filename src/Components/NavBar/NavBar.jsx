@@ -2,13 +2,13 @@ import {NavLink} from "react-router-dom";
 
 function NavBar(props) {
     return (
-        <div>
+        <div className='NavBar'>
             <nav >
                 <div>
                     <NavLink to='/profile' className>Профиль</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/StoryList' className>Истории</NavLink>
+                    <NavLink to='/story-list' className>Истории</NavLink>
                 </div>
                 <div>
                     <NavLink to='/users' className>Пользователи</NavLink>

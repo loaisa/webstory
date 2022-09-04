@@ -1,8 +1,12 @@
-import React from 'react';
-import Header from "../Header/Header";
+import React, {useState} from 'react';
+
 import classes from './Main.module.css'
 
+
+
+
 function Main(props) {
+
     return (
 
         <div className={classes.main}>
@@ -19,6 +23,7 @@ function Main(props) {
                     </button>
                 </div>
             </div>
+
         </div>
     );
 }
