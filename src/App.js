@@ -8,6 +8,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import {StoryList} from "./Components/Story/StoryList";
 import Story from "./Components/Story/Story";
 import About from "./Components/Main/About";
+import Test from "./Components/test/Test";
 
 
 
@@ -24,7 +25,7 @@ function App() {
                     <Route path='/create-story/*' element={<CreateStory/>}/>
                     <Route path='story/:id' element={<Story/>}/>
                     <Route path='/story-list/*' element={<StoryList/>}/>
-
+                    <Route path='/test/*' element={<Test/>}/>
                 </Routes>
 
             </div>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import classes from "./Story.module.css";
 
 // const Modal = ({flag, setFlag, children})=>(
@@ -13,65 +13,44 @@ import classes from "./Story.module.css";
 //     </div>
 // )
 
+const PrewImg = (props) => {
+
+    const [fotos, setFotos] = useState([])
+    const target = useRef()
+
+    const clickButt = (e) => {
+        e.preventDefault()
+        target.current.click()
+    }
+
+
+    const handeUpload = (e) => {
+        const uploaded = e.target.files[0]
+        setFotos(URL.createObjectURL(uploaded))
+    }
+
+    return (
+
+        <>
+            <div className={props.classNameDiv}>
+                <button className={props.classNameBtn} onClick={clickButt}>{props.text}</button>
+                <input ref={target} type='file' onChange={(e) => handeUpload(e)}/>
+
+            </div>
+            {fotos.length === 0 ? '' : <img src={fotos} alt="" className={props.classNameImg}/> }
+
+        </>
+
+    )
+}
+
 
 function CreateStory(props) {
     // const [flag, setFlag] = useState(false)
-    // const[history, setHistory] = useState()
-    const [selectedFile, setSelectedFile] = useState()
-    const [selectedFilePr, setSelectedFilePr] = useState()
-    const [preview, setPreview] = useState()
-    const [preview1, setPreview2] = useState()
 
-    // create a preview as a side effect, whenever selected file is changed
+    const [text, setText] = useState('')
+    const [h, setH] = useState('')
 
-
-    useEffect(() => {
-        if (!selectedFile){
-            setPreview(undefined)
-            return
-        }
-
-        const objectUrl = URL.createObjectURL(selectedFile)
-        setPreview(objectUrl)
-
-        // free memory when ever this component is unmounted
-        return () => URL.revokeObjectURL(objectUrl)
-
-    }, [selectedFile])
-    useEffect(() => {
-        if (!selectedFilePr){
-            setPreview2(undefined)
-            return
-        }
-
-        const objectUrl2 = URL.createObjectURL(selectedFilePr)
-        setPreview2(objectUrl2)
-
-        // free memory when ever this component is unmounted
-        return () => URL.revokeObjectURL(objectUrl2)
-    }, [selectedFilePr])
-
-
-    const onSelectFile = e => {
-        if (!e.target.files || e.target.files.length === 0) {
-            setSelectedFile(undefined)
-            return
-        }
-
-        // I've kept this example simple by using the first image instead of multiple
-        setSelectedFile(e.target.files[0])
-    }
-    const onSelectFilePreview = e => {
-
-        if (!e.target.files || e.target.files.length === 0) {
-            selectedFilePr(undefined)
-            return
-        }
-
-        // I've kept this example simple by using the first image instead of multiple
-        setSelectedFilePr(e.target.files[0])
-        debugger
-    }
 
     const AddHistory = (e)=>{
         e.preventDefault()
@@ -83,13 +62,8 @@ function CreateStory(props) {
     return (
         <div className={classes.form}>
             <form>
-
                 <h1 className={classes.formItem}>Создание истории</h1>
-                <div>
-                    <p>Обложка рассказа</p>
-                    <input type='file' className={classes.formItem} onChange={onSelectFile} />
-                    {selectedFile &&  <img src={preview} alt='sd' /> }
-                </div>
+                    <PrewImg text={'Обложка'}/>
                 <hr style={{border: '1px solid', margin: "10px 0"}}/>
                 <div>
                     <p className={classes.formItem}>Наименовнии истории</p>
@@ -111,20 +85,35 @@ function CreateStory(props) {
                     <option value="Комедия">Комедия</option>
                 </select>
                 <hr style={{border: '1px solid', margin: "10px 0"}}/>
-                <div>
-                    <button onClick={AddHistory} className="mdc-button foo-button">
-                        <div className="mdc-button__ripple"></div>
-                        <span className="mdc-button__label">Сохранить</span>
-                    </button>
-                </div>
-            </form>
+                <label >Заголовок: </label>
+                <input value={h} onChange={(event)=>setH(event.target.value)} type='text' placeholder='Пример имя персонажа'/>
+                <hr style={{border: '1px solid', margin: "10px 0"}}/>
+                <label for='text'>Текст: </label>
+                <textarea style={{resize:'none', width:'100%'}} onChange={ e => setText(e.target.value)}
+                          value={text} id='text'
+                          placeholder='Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов,
+                          но это не совсем так...'/>
 
-            <form action="">
-                <input type='file' onChange={onSelectFilePreview}/>
 
-            </form>
             <div className={classes.create_story}>
-                {selectedFilePr &&  <img src={preview1} alt='sd' /> }
+
+                <div className={classes.create_story__img}>
+                    <PrewImg text={'передний план'} classNameDiv={classes.create_story__div}
+                             classNameImg={classes.create_story__preview_front} classNameBtn={classes.create_story__btn}/>
+                    <PrewImg text={'Задний план'} classNameImg={classes.create_story__preview_back}
+                             classNameDiv={classes.create_story__div}/>
+                </div>
+
+
+                <div className={classes.create_story__text}>
+
+                    <div className={classes.create_story__h}>
+                        {h}
+                        <hr/>
+                        {text}
+                    </div>
+                </div>
+
             </div>
 
 
@@ -132,8 +121,8 @@ function CreateStory(props) {
             {/*<Modal flag={flag} setFlag={setFlag}>*/}
             {/*    <h1>asdasd</h1>*/}
             {/*</Modal>*/}
-
-
+                <button>Сохранить сцену</button>
+            </form>
         </div>
 
 
