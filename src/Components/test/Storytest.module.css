@@ -35,7 +35,7 @@
     transform: translateY(0);
 }
 .overlay {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -59,7 +59,7 @@
 }
 
 .modal svg {
-    position: absolute;
+    position: fixed;
     right: 10px;
     top: 10px;
     height: 24px;
@@ -78,6 +78,7 @@
 .overlay.animated.show {
     opacity: 1;
     visibility: visible;
+    z-index: 44;
 }
 /*.overlay.animated.show .modal {*/
 /*    opacity: 1;*/
@@ -133,13 +134,18 @@ input[type='file']{
 .create_story__h{
     width: 40%;
     padding: 10px;
-    max-height: 140px;
+    max-height: 100px;
     background: #b5d2d2;
     border-radius: 15px;
     overflow: hidden;
     top: 55%;
     position: absolute;
+    word-break: break-all;
 }
 .create_story__p{
 
+}
+.hr{
+    border: 1px solid;
+    margin: 10px 0
 }
