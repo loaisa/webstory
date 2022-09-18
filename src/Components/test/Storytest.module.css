@@ -149,3 +149,15 @@ input[type='file']{
     border: 1px solid;
     margin: 10px 0
 }
+
+.Tree{
+    display: flex;
+    background-color: #fff;
+    min-width: 100%;
+    min-height: 200px;
+}
+.sceneBlock{
+     background-color: #e74c3c;
+     min-width: 200px;
+     margin: 5px;
+ }

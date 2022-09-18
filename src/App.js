@@ -9,6 +9,7 @@ import {StoryList} from "./Components/Story/StoryList";
 import Story from "./Components/Story/Story";
 import About from "./Components/Main/About";
 import Test from "./Components/test/Test";
+import {TestStoryList} from "./Components/test/TestStoryList";
 
 
 
@@ -26,6 +27,7 @@ function App() {
                     <Route path='story/:id' element={<Story/>}/>
                     <Route path='/story-list/*' element={<StoryList/>}/>
                     <Route path='/test/*' element={<Test/>}/>
+                    <Route path='/test-story-list/*' element={<TestStoryList/>}/>
                 </Routes>
 
             </div>
